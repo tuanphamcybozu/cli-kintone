@@ -1,6 +1,7 @@
 const { isMatchPackage } = require("@cybozu/license-manager");
 
 const config = {
+  packageManager: "pnpm",
   analyze: {
     allowLicenses: [
       "MIT",
@@ -28,7 +29,6 @@ const config = {
   },
   extract: {
     output: "./NOTICE",
-    packageManager: "pnpm",
   },
   overrideLicense: (dep) => {
     for (const thirdParty of Object.keys(OVERRIDE_LICENSES)) {
@@ -54,7 +54,7 @@ const OVERRIDE_LICENSES = {
   // "browser-assert@1.2.1": "MIT", // https://github.com/socialally/browser-assert/blob/v1.2.1/LICENSE
 };
 
-// example for override license text - extract command
+//  For extract command
 const OVERRIDE_LICENSES_TEXT = {
   "https-proxy-agent@7.0.2": {
     licensePageUrl:
